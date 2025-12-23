@@ -14,7 +14,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles = "admin")]
         public IActionResult GetCompanies() {
             // try {
             //throw new Exception();
