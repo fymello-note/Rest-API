@@ -17,5 +17,9 @@ namespace CompanyEmployees.Repository
         public IEnumerable<Company> GetAllCompanies(bool trackChanges) {
             return FindAll(trackChanges).OrderBy(c => c.Name).ToList();
         }
+
+        public Company? GetCompany(bool trackChanges, Guid Id) {
+            return FindByCondition(compa => compa.Id == Id, trackChanges).FirstOrDefault();
+        }
     } 
 }

@@ -18,14 +18,20 @@ namespace CompanyEmployees.Controllers
             //throw new Exception();
             var companies = _service.companyService.GetAllCompanies(false);
 
-            if(companies == null) throw new Exception();
-
             return Ok(companies);
             // }
             // catch (Exception)
             // {
             //     return StatusCode(500, "Internal server Error");
             // }
+        }
+
+        [HttpGet("{id:guid}")]
+        public IActionResult GetCompany(Guid id)
+        {
+            var company = _service.companyService.GetCompany(false, id);
+
+            return Ok(company);
         }
     }
 }

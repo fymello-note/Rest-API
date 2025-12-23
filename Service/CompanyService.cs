@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using CompanyEmployees.Exceptions;
 using CompanyEmployees.Models;
 using CompanyEmployees.Repository.Contracts;
 using CompanyEmployees.Service.Contracts;
@@ -16,8 +17,7 @@ namespace CompanyEmployees.Service
             _mapper = mapper;
         }
 
-        public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges)
-        {
+        public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges) {
             /*             try
                         { */
             var companies = _repository.Company.GetAllCompanies(trackChanges);
@@ -26,6 +26,15 @@ namespace CompanyEmployees.Service
                             Console.WriteLine($"Something wrong {ex}");
                             throw;
                         } */
+        }
+
+        public CompanyDto? GetCompany(bool trackChanges, Guid Id) {
+            var company = _repository.Company.GetCompany(trackChanges, Id);
+
+            if (company is null)
+                throw new CompanyNotFoundException(Id);
+
+            return _mapper.Map<CompanyDto>(company);
         }
 /*         public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges)
         {

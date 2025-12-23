@@ -7,6 +7,8 @@ namespace CompanyEmployees.Mapping{
         {
             CreateMap<Company, CompanyDto>().ForCtorParam("FullAddress", opt => 
                 opt.MapFrom(x => string.Join(' ', new object?[] {x.Address, x.Country})));
+
+            CreateMap<Employee, EmployeeDto>();
         }
     }
 }

@@ -7,5 +7,7 @@ namespace CompanyEmployees.Repository.Contracts
 
 
         IEnumerable<Company> GetAllCompanies(bool trackChanges); 
+
+        Company? GetCompany(bool trackChanges, Guid Id);
     } 
 }
