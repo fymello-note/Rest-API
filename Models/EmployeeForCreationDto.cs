@@ -13,7 +13,7 @@ namespace CompanyEmployees.Models {
 
         [Required(ErrorMessage ="Position is required")]
         [MaxLength(20, ErrorMessage ="Maximum length 20 characters for employee position")]
-        public string? Position;
+        public string? Position {get; init;}
     };
 
 }
