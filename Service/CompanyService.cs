@@ -17,6 +17,14 @@ namespace CompanyEmployees.Service
             _mapper = mapper;
         }
 
+        public CompanyDto CreateCompany(CompanyForCreationDto company)
+        {
+            var companyEntity = _mapper.Map<Company>(company);
+            _repository.Company.CreateCompany(companyEntity);
+            _repository.Save();
+            return _mapper.Map<CompanyDto>(companyEntity);
+        }
+
         public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges) {
             /*             try
                         { */

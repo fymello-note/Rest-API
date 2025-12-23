@@ -1,4 +1,5 @@
 using CompanyEmployees.Extensions;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyEmployees
 {
@@ -14,6 +15,11 @@ namespace CompanyEmployees
             builder.Services.ConfigureRepositoryManager();
             builder.Services.ConfigureServiceManager();
             builder.Services.AddAutoMapper(typeof(Program));
+
+            // Suppress ApiController behaviour
+            builder.Services.Configure<ApiBehaviorOptions>(option => {
+                option.SuppressModelStateInvalidFilter = true;
+            });
 
             builder.Services.AddControllers();
 

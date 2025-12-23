@@ -10,6 +10,22 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CompanyEmployees.Controllers.CompaniesController",
+    "Method": "CreationCompany",
+    "RelativePath": "api/Companies",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "company",
+        "Type": "CompanyEmployees.Models.CompanyForCreationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CompanyEmployees.Controllers.EmployeeController",
     "Method": "GetEmployeesForCompany",
     "RelativePath": "api/companies/{companyId}/employees",
@@ -26,6 +42,49 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "CompanyEmployees.Controllers.EmployeeController",
+    "Method": "CreateEmployeeForCompany",
+    "RelativePath": "api/companies/{companyId}/employees",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "employee",
+        "Type": "CompanyEmployees.Models.EmployeeForCreationDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CompanyEmployees.Controllers.EmployeeController",
+    "Method": "GetEmployeeForCompany",
+    "RelativePath": "api/companies/{companyId}/employees/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [],
+    "EndpointName": "GetEmployeeForCompany"
+  },
+  {
     "ContainingType": "CompanyEmployees.Controllers.CompaniesController",
     "Method": "GetCompany",
     "RelativePath": "api/Companies/{id}",
@@ -39,6 +98,7 @@
         "IsRequired": true
       }
     ],
-    "ReturnTypes": []
+    "ReturnTypes": [],
+    "EndpointName": "CompanyById"
   }
 ]

@@ -7,6 +7,8 @@ namespace CompanyEmployees.Service.Contracts
         IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges); 
 
         CompanyDto? GetCompany(bool trackChanges, Guid Id);
+
+        CompanyDto CreateCompany(CompanyForCreationDto company);
         
     }
 }

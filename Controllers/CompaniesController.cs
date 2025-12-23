@@ -26,12 +26,22 @@ namespace CompanyEmployees.Controllers
             // }
         }
 
-        [HttpGet("{id:guid}")]
+        [HttpGet("{id:guid}", Name = "CompanyById")]
         public IActionResult GetCompany(Guid id)
         {
             var company = _service.companyService.GetCompany(false, id);
 
             return Ok(company);
+        }
+
+        [HttpPost]
+        public IActionResult CreationCompany([FromBody] CompanyForCreationDto company){
+            if(company is null) 
+                return BadRequest("CompanyForCreationDto is null");
+
+            var companyCreated = _service.companyService.CreateCompany(company);
+
+            return CreatedAtRoute("CompanyById", new {id = companyCreated.Id}, companyCreated);
         }
     }
 }
