@@ -1,0 +1,27 @@
+using System.Linq.Expressions;
+using CompanyEmployees.Repository.Contracts;
+using Microsoft.EntityFrameworkCore;
+
+namespace CompanyEmployees.Repository
+{
+    public abstract class RepositoryBase<T> : IRepositoryBase<T> where T : class
+    {
+        protected RepositoryContext repositoryContext;
+        public RepositoryBase(RepositoryContext repositoryContext)
+        {
+            this.repositoryContext = repositoryContext; 
+        }
+
+        public void Create(T entity) => repositoryContext.Set<T>().Add(entity);
+
+        public void Delite(T entity)=> repositoryContext.Set<T>().Remove(entity);
+
+        public IQueryable<T> FindAll(bool trackChanges) => !trackChanges ? repositoryContext.Set<T>().AsNoTracking() : repositoryContext.Set<T>();
+
+        public IQueryable<T> FindByCondition(Expression<Func<T, bool>> expression, bool trackChanges) => !trackChanges ?
+        repositoryContext.Set<T>().Where(expression).AsNoTracking() : 
+        repositoryContext.Set<T>().Where(expression);
+
+        public void Update(T entity) => repositoryContext.Set<T>().Update(entity);
+    }
+}
