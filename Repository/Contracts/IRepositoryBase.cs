@@ -7,6 +7,6 @@ namespace CompanyEmployees.Repository.Contracts {
 
         void Create(T entity);
         void Update(T entity);
-        void Delite(T entity);
+        void Delete(T entity);
     } 
 }

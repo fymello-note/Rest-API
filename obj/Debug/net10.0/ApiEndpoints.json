@@ -85,6 +85,27 @@
     "EndpointName": "GetEmployeeForCompany"
   },
   {
+    "ContainingType": "CompanyEmployees.Controllers.EmployeeController",
+    "Method": "DeleteEmployeeForCompany",
+    "RelativePath": "api/companies/{companyId}/employees/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyId",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CompanyEmployees.Controllers.CompaniesController",
     "Method": "GetCompany",
     "RelativePath": "api/Companies/{id}",

@@ -14,7 +14,7 @@ namespace CompanyEmployees.Repository
 
         public void Create(T entity) => repositoryContext.Set<T>().Add(entity);
 
-        public void Delite(T entity)=> repositoryContext.Set<T>().Remove(entity);
+        public void Delete(T entity)=> repositoryContext.Set<T>().Remove(entity);
 
         public IQueryable<T> FindAll(bool trackChanges) => !trackChanges ? repositoryContext.Set<T>().AsNoTracking() : repositoryContext.Set<T>();
 
