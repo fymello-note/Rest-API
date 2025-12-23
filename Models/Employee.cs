@@ -8,6 +8,7 @@ namespace CompanyEmployees.Models
         [Column("EmployeeId")]
         public Guid Id {get; set;} 
 
+        // we don't use this because for creation we create a EmployeeForCreationDto
         [Required(ErrorMessage ="Employee name is required")]
         [MaxLength(20, ErrorMessage ="Maximum length 20 characters for employee name")]
         public string? Name {get; set;}

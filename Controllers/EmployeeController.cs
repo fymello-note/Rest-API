@@ -29,11 +29,24 @@ namespace CompanyEmployees.Controllers
         public IActionResult CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)        {
             if(employee is null)
                 return BadRequest("EmployeeForCreationDto object is null");
+            
+            if(!ModelState.IsValid)
+                return UnprocessableEntity(ModelState);
 
             var employeeToReturn = _service.employeeService.CreateEmployee(companyId, employee, false);
 
             return CreatedAtRoute("GetEmployeeForCompany", new {companyId, id=employeeToReturn.Id}, employeeToReturn);
         }
+        /*
+        [HttpPost]
+        public IActionResult CreateEmployeeForCompany(Guid companyId, [FromBody] EmployeeForCreationDto employee)        {
+            if(employee is null)
+                return BadRequest("EmployeeForCreationDto object is null");
+
+            var employeeToReturn = _service.employeeService.CreateEmployee(companyId, employee, false);
+
+            return CreatedAtRoute("GetEmployeeForCompany", new {companyId, id=employeeToReturn.Id}, employeeToReturn);
+        } */
 
         [HttpDelete("{id:guid}")]
         public IActionResult DeleteEmployeeForCompany(Guid companyId, Guid id) {
