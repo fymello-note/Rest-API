@@ -13,7 +13,7 @@
     "ContainingType": "CompanyEmployees.Controllers.EmployeeController",
     "Method": "GetEmployeesForCompany",
     "RelativePath": "api/companies/{companyId}/employees",
-    "HttpMethod": "",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [

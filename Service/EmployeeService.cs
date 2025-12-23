@@ -19,11 +19,12 @@ namespace CompanyEmployees.Service
 
         public IEnumerable<EmployeeDto> GetEmployees(Guid companyId, bool trackChanges)
         {
+            if (_repository.Company.GetCompany(false, companyId) is null)
+                throw new CompanyNotFoundException(companyId);
+
             var Employees = _repository.Employee.GetEmployees(companyId, trackChanges);
 
-            if (_repository.Company.GetCompany(false, companyId) == null)
-                throw new CompanyNotFoundException(companyId);
-            else if (Employees is null)
+            if (Employees is null)
                 throw new EmployeeNotFoundException(companyId);
 
 

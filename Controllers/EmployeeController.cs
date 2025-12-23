@@ -12,6 +12,7 @@ namespace CompanyEmployees.Controllers
             _service = service;
         }
 
+        [HttpGet]
         public IActionResult GetEmployeesForCompany(Guid companyId)
         {
             var Employees = _service.employeeService.GetEmployees(companyId, false);
