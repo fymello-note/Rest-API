@@ -1,5 +1,21 @@
 [
   {
+    "ContainingType": "CompanyEmployees.Controllers.AuthenticationController",
+    "Method": "Authenticate",
+    "RelativePath": "api/Authentication/login",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "user",
+        "Type": "CompanyEmployees.Models.UserForAuthenticationDbo",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "CompanyEmployees.Controllers.CompaniesController",
     "Method": "GetCompanies",
     "RelativePath": "api/Companies",

@@ -23,6 +23,9 @@ namespace CompanyEmployees
 
             builder.Services.AddControllers();
 
+            builder.Services.AddAuthentication();
+            builder.Services.ConfigureJWT(builder.Configuration);
+
             var app = builder.Build();
 
             //Install a global exception handler

@@ -1,8 +1,8 @@
 ﻿namespace CompanyEmployees.Service.Contracts
 {
-    public interface IServiceManager
-    {
-        public ICompanyService companyService { get; }
-        public IEmployeeService employeeService { get; }
+    public interface IServiceManager {
+        ICompanyService companyService { get; }
+        IEmployeeService employeeService { get; }
+        IAuthenticationService AuthenticationService {get;}
     }
 }

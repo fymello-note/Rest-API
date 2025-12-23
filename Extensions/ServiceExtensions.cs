@@ -1,8 +1,11 @@
-﻿using CompanyEmployees.Repository;
+﻿using System.Text;
+using CompanyEmployees.Repository;
 using CompanyEmployees.Repository.Contracts;
 using CompanyEmployees.Service;
 using CompanyEmployees.Service.Contracts;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 
 namespace CompanyEmployees.Extensions
 {
@@ -31,6 +34,26 @@ namespace CompanyEmployees.Extensions
             services.AddDbContext<RepositoryContext>(opts =>
             {
                 opts.UseSqlServer(configuration.GetConnectionString("sqlConnection"));
+            });
+        }
+
+        public static void ConfigureJWT(this IServiceCollection services, IConfiguration configuration) {
+            var jwtSettings = configuration.GetSection("JwtSettings");
+            var secretKey = "BuisinessSecretKeyBuisinessSecretKeyBuisinessSecretKeyBuisinessSecretKey";
+
+            services.AddAuthentication(opt => {
+                opt.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                opt.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+            }).AddJwtBearer(options => {
+                options.TokenValidationParameters = new TokenValidationParameters{
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ValidIssuer = jwtSettings["ValidIssuer"],
+                    ValidAudience = jwtSettings["ValidAudience"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey))
+                };
             });
         }
     }

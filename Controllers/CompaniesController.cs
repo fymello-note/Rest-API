@@ -1,5 +1,6 @@
 ﻿using CompanyEmployees.Models;
 using CompanyEmployees.Service.Contracts;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CompanyEmployees.Controllers
@@ -13,6 +14,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult GetCompanies() {
             // try {
             //throw new Exception();
@@ -27,8 +29,7 @@ namespace CompanyEmployees.Controllers
         }
 
         [HttpGet("{id:guid}", Name = "CompanyById")]
-        public IActionResult GetCompany(Guid id)
-        {
+        public IActionResult GetCompany(Guid id) {
             var company = _service.companyService.GetCompany(false, id);
 
             return Ok(company);
