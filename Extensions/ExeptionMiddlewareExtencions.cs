@@ -2,12 +2,10 @@ using CompanyEmployees.ErrorModel;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Net;
 
-namespace CompanyEmployees.Extensions
-{
-    public static class ExceptionMiddlewareExtensions
-    {
-        public static void ConfigureExceptionHandler(this WebApplication app)
-        {
+namespace CompanyEmployees.Extensions {
+
+    public static class ExceptionMiddlewareExtensions {
+        public static void ConfigureExceptionHandler(this WebApplication app) {
             app.UseExceptionHandler(appError => {
                 appError.Run(async context => {
                     context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;

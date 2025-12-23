@@ -19,6 +19,9 @@ namespace CompanyEmployees
 
             var app = builder.Build();
 
+            //Install a global exception handler
+            app.ConfigureExceptionHandler();
+
             // Configure the HTTP request pipeline.
 
             app.UseHttpsRedirection();

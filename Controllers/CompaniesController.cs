@@ -14,14 +14,18 @@ namespace CompanyEmployees.Controllers
 
         [HttpGet]
         public IActionResult GetCompanies() {
-            try {
-                var companies = _service.companyService.GetAllCompanies(false);
-                return Ok(companies);
-            }
-            catch (Exception)
-            {
-                return StatusCode(500, "Internal server Error");
-            }
+            // try {
+            //throw new Exception();
+            var companies = _service.companyService.GetAllCompanies(false);
+
+            if(companies == null) throw new Exception();
+
+            return Ok(companies);
+            // }
+            // catch (Exception)
+            // {
+            //     return StatusCode(500, "Internal server Error");
+            // }
         }
     }
 }

@@ -18,14 +18,14 @@ namespace CompanyEmployees.Service
 
         public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges)
         {
-            try
-            {
-                var companies = _repository.Company.GetAllCompanies(trackChanges);
-                return _mapper.Map<IEnumerable<CompanyDto>>(companies);
-            } catch (Exception ex) {
-                Console.WriteLine($"Something wrong {ex}");
-                throw;
-            }
+            /*             try
+                        { */
+            var companies = _repository.Company.GetAllCompanies(trackChanges);
+            return _mapper.Map<IEnumerable<CompanyDto>>(companies);
+            /*             } catch (Exception ex) {
+                            Console.WriteLine($"Something wrong {ex}");
+                            throw;
+                        } */
         }
 /*         public IEnumerable<CompanyDto> GetAllCompanies(bool trackChanges)
         {

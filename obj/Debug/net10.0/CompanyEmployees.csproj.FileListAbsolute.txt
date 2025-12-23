@@ -166,3 +166,4 @@ C:\Users\For IT\source\repos\CompanyEmployees\bin\Debug\net10.0\zh-Hant\Microsof
 C:\Users\For IT\source\repos\CompanyEmployees\bin\Debug\net10.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 C:\Users\For IT\source\repos\CompanyEmployees\bin\Debug\net10.0\AutoMapper.dll
 C:\Users\For IT\source\repos\CompanyEmployees\bin\Debug\net10.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\For IT\source\repos\CompanyEmployees\obj\Debug\net10.0\CompanyEmployees.sourcelink.json
